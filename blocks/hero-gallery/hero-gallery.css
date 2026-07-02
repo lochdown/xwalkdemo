@@ -1,0 +1,138 @@
+/* hero-gallery block
+ * Two-column hero: heading + subheading + two CTAs (left), stacked image grid (right).
+ * Values extracted from source computed styles (wknd-trendsetters.site).
+ */
+
+/* Full-width light-grey band. Override the section max-width wrapper. */
+main .section.hero-gallery-container {
+  background-color: var(--light-color);
+  margin: 0;
+  padding: 0;
+}
+
+.hero-gallery.block {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+/* Images gallery: 2-column grid. */
+.hero-gallery .hero-gallery-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.hero-gallery .hero-gallery-image {
+  margin: 0;
+}
+
+.hero-gallery picture {
+  display: block;
+}
+
+.hero-gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Text column */
+.hero-gallery .hero-gallery-text h1 {
+  margin: 0;
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.hero-gallery .hero-gallery-text p {
+  margin: 24px 0 0;
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* CTA buttons: the two trailing paragraphs each hold a single link.
+ * EDS does not auto-decorate these to .button, so style the links directly. */
+.hero-gallery .hero-gallery-text p:nth-of-type(2) {
+  display: inline-block;
+  margin: 32px 16px 0 0;
+}
+
+.hero-gallery .hero-gallery-text p:nth-of-type(3) {
+  display: inline-block;
+  margin: 32px 0 0;
+}
+
+.hero-gallery .hero-gallery-text p:nth-of-type(2) a:any-link,
+.hero-gallery .hero-gallery-text p:nth-of-type(3) a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: 2px solid var(--text-color);
+  border-radius: 9999px;
+  padding: 12px 24px;
+  background-color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--background-color);
+  text-decoration: none;
+}
+
+/* Second CTA renders as outline. */
+.hero-gallery .hero-gallery-text p:nth-of-type(3) a:any-link {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Filled (first) CTA hover. */
+.hero-gallery .hero-gallery-text p:nth-of-type(2) a:any-link:hover {
+  background-color: #333;
+  border-color: #333;
+  color: var(--background-color);
+  text-decoration: none;
+}
+
+/* Outline (second) CTA hover. */
+.hero-gallery .hero-gallery-text p:nth-of-type(3) a:any-link:hover {
+  background-color: var(--light-color);
+  border-color: var(--text-color);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* Mobile: single column, images stack above text. */
+@media (width < 900px) {
+  .hero-gallery.block {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+/* Desktop: two-column grid. Text left, images right. */
+@media (width >= 900px) {
+  .hero-gallery.block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 64px;
+    align-items: center;
+    padding: 128px 32px;
+  }
+
+  .hero-gallery .hero-gallery-text {
+    order: 1;
+  }
+
+  .hero-gallery .hero-gallery-images {
+    order: 2;
+  }
+}

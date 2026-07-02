@@ -1,0 +1,119 @@
+/* hero-overlay: full-bleed CTA banner with dark gradient overlay and bottom-left content */
+
+/* Card wrapper -- rounded, clipped, content bottom-aligned over the image */
+.hero-overlay {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 360px;
+  border-radius: 20px;
+  overflow: hidden;
+  color: var(--background-color);
+}
+
+/* Dark gradient overlay above the image, below the text */
+.hero-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: linear-gradient(to top, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 0%) 60%);
+}
+
+/* Row 1 = image cell -- fills the card behind everything */
+.hero-overlay > div:first-child {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+/* Row 2 = text cell -- content on top of the overlay, bottom-left */
+.hero-overlay > div:last-child {
+  position: relative;
+  z-index: 2;
+  max-width: 672px;
+  padding: 40px 24px;
+  margin: 0;
+}
+
+.hero-overlay > div:first-child > div,
+.hero-overlay > div:first-child p,
+.hero-overlay > div:first-child picture {
+  display: block;
+  height: 100%;
+  margin: 0;
+}
+
+.hero-overlay > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay > div:last-child > div {
+  margin: 0;
+}
+
+.hero-overlay > div:last-child h2 {
+  margin: 0;
+  font-size: var(--heading-size-xl, 40px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--background-color);
+}
+
+.hero-overlay > div:last-child p {
+  margin: 16px 0 0;
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  color: var(--background-color);
+}
+
+/* CTA link -- source "inverse" button: white fill, black text, pill */
+.hero-overlay a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  padding: 12px 24px;
+  border: 2px solid var(--background-color);
+  border-radius: 9999px;
+  background-color: var(--background-color);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.hero-overlay a:any-link:hover {
+  border-color: rgb(255 255 255 / 85%);
+  background-color: rgb(255 255 255 / 85%);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* Desktop */
+@media (width >= 900px) {
+  .hero-overlay {
+    min-height: 559px;
+  }
+
+  .hero-overlay > div:last-child {
+    padding: 64px;
+  }
+
+  .hero-overlay > div:last-child h2 {
+    font-size: var(--heading-size-xxl, 56px);
+    line-height: 1.1;
+    letter-spacing: -1.12px;
+  }
+
+  .hero-overlay > div:last-child p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+}

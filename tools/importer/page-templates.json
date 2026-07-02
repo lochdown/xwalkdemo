@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://wknd-trendsetters.site/"
+      ],
+      "representativeUrl": "https://wknd-trendsetters.site/",
+      "coverageGaps": [],
+      "description": "Fashion blog homepage with hero, featured story, image gallery, testimonials tabs, latest articles cards, FAQ accordion, and CTA banner",
+      "blocks": [
+        {
+          "name": "hero-gallery",
+          "instances": [
+            "#main-content > header.section.secondary-section"
+          ]
+        },
+        {
+          "name": "columns-feature",
+          "instances": [
+            "#main-content > section.section:nth-of-type(1)"
+          ]
+        },
+        {
+          "name": "section-gallery",
+          "instances": [
+            "#main-content > section.section.secondary-section:nth-of-type(2)"
+          ],
+          "section": "light-grey"
+        },
+        {
+          "name": "cards-gallery",
+          "instances": [
+            "#main-content > section.section.secondary-section:nth-of-type(2) div.grid-layout.desktop-4-column.tablet-2-column-1.mobile-portrait-1-column.grid-gap-sm"
+          ]
+        },
+        {
+          "name": "tabs-testimonial",
+          "instances": [
+            "#main-content > section.section:nth-of-type(3) div.tabs-wrapper"
+          ]
+        },
+        {
+          "name": "section-articles",
+          "instances": [
+            "#main-content > section.section.secondary-section:nth-of-type(4)"
+          ],
+          "section": "light-grey"
+        },
+        {
+          "name": "cards-article",
+          "instances": [
+            "#main-content > section.section.secondary-section:nth-of-type(4) div.grid-layout.desktop-4-column.tablet-2-column-1.mobile-portrait-1-column.grid-gap-md"
+          ]
+        },
+        {
+          "name": "accordion-faq",
+          "instances": [
+            "#main-content > section.section:nth-of-type(5) div.faq-list"
+          ]
+        },
+        {
+          "name": "hero-overlay",
+          "instances": [
+            "#main-content > section.section.inverse-section"
+          ]
+        }
+      ]
+    }
+  ]
+}

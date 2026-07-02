@@ -1,0 +1,79 @@
+/* Block: accordion-faq -- CSS extracted from source computed styles */
+
+.accordion-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 100%;
+}
+
+.accordion-faq .accordion-faq-item {
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  background-color: var(--background-color);
+}
+
+/* clickable question row */
+.accordion-faq .accordion-faq-item-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 32px;
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--text-color);
+  text-transform: none;
+}
+
+.accordion-faq .accordion-faq-item-label::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-faq .accordion-faq-item-label p {
+  margin: 0;
+}
+
+/* plus / minus toggle icon (source: 20x20 svg, black) */
+.accordion-faq .accordion-faq-item-label::after {
+  content: '';
+  position: relative;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  background-image:
+    linear-gradient(var(--text-color), var(--text-color)),
+    linear-gradient(var(--text-color), var(--text-color));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px 2px, 2px 20px;
+  transition: transform 0.2s ease;
+}
+
+.accordion-faq .accordion-faq-item[open] .accordion-faq-item-label::after {
+  background-size: 20px 2px, 2px 0;
+  transform: rotate(180deg);
+}
+
+/* answer body */
+.accordion-faq .accordion-faq-item-body {
+  padding: 0 32px 32px;
+  background-color: var(--background-color);
+}
+
+.accordion-faq .accordion-faq-item-body p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #404040;
+}
+
+.accordion-faq .accordion-faq-item:not([open]) .accordion-faq-item-body {
+  display: none;
+}
