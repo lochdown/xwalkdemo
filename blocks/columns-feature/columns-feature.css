@@ -1,0 +1,58 @@
+/* columns-feature — featured story: wide image + heading/author/meta */
+
+.columns-feature > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* image column stacks first on mobile */
+.columns-feature > div > div {
+  order: 1;
+}
+
+.columns-feature > div > .columns-feature-img-col {
+  order: 0;
+}
+
+.columns-feature img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* heading */
+.columns-feature h2 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+/* author + meta lines */
+.columns-feature .columns-feature-text-col p {
+  margin: 16px 0 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+@media (width >= 900px) {
+  .columns-feature > div {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .columns-feature > div > div {
+    flex: 1;
+    order: unset;
+  }
+}
